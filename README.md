@@ -1,4 +1,3 @@
-# digital-resume
 # Personal Web Portfolio & Digital Resume
 
 A fully responsive, modern web portfolio built from scratch to showcase my engineering background, technical stack, and software development projects.
