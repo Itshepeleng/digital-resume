@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Itshepeleng Lerato</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gradient">
+
+  <header class="navbar">
+    <a href="index.html" class="logo">✦</a>
+    <nav class="nav-links">
+      <a href="Portfolio.html" class="nav-item">ABOUT ME</a>
+      <a href="projects.html" class="nav-item">PROJECTS</a>
+      <a href="contact.html" class="nav-item active">CONTACT ME</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="page-title">GET IN TOUCH WITH ITSHEPELENG</h1>
+
+    <div class="contact-grid">
+      <div class="form-container">
+        <h2 class="section-subtitle">CONTACT FORM</h2>
+        <form id="contactForm" novalidate>
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder="Full Name" required />
+            <span class="error-message" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required />
+            <span class="error-message" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <select id="projectType" required>
+              <option value="" disabled selected>Project Type</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Web App">Web App</option>
+              <option value="Branding">Branding</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="error-message" id="typeError"></span>
+          </div>
+
+          <div class="form-group">
+            <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+            <span class="error-message" id="messageError"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">SEND</button>
+        </form>
+      </div>
+
+      <div class="info-card">
+        <h3>RESPONSES TYPICALLY WITHIN 24-48 HOURS</h3>
+        <p>Share your project details and I’ll reach out as soon as possible.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer-section">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h2 class="footer-title">LET’S BUILD SOMETHING GREAT</h2>
+        <p class="footer-desc">
+          Ready to move forward on your next project? Let’s connect and make something exceptional together.
+        </p>
+        
+        <div class="personal-details">
+          <h3>ITSHEPELENG LERATO</h3>
+          <p>Email: <a href="mailto:itshepeleng03@gmail.com">itshepeleng03@gmail.com</a></p>
+          <p>Location: Bloemfontein, South Africa</p>
+          <p>Availability: Open for projects, collaborations, and permanent employment</p>
+        </div>
+      </div>
+
+      <div class="footer-profile">
+        <img src="assets/images/IMG-20260518-WA0043.jpg" alt="Itshepeleng Lerato" class="profile-avatar" />
+        <h3 class="thank-you">THANK YOU</h3>
+        <div class="social-links">
+          <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/Itshepeleng" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
