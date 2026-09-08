@@ -22,6 +22,23 @@ body {
   font-family: var(--font-main);
   line-height: 1.6;
   padding-bottom: 80px;
+  transition: opacity 380ms ease, transform 380ms ease;
+}
+
+body.is-page-leaving-forward {
+  opacity: 0;
+  transform: translateY(-14px);
+}
+
+body.is-page-leaving-backward {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    transition: none;
+  }
 }
 
 /* Navbar */
@@ -733,4 +750,153 @@ input:focus, select:focus, textarea:focus {
   .contact-grid, .footer-container {
     flex-direction: column;
   }
+}
+
+/* Journey Timeline */
+.journey-section {
+  padding: 48px 0;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 32px;
+  border-left: 2px solid var(--border-color);
+  padding-left: 32px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -49px;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  padding: 24px;
+}
+
+.timeline-date {
+  color: var(--accent-blue);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.role-desc {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin: 4px 0 16px 0;
+}
+
+.timeline-list {
+  list-style: disc;
+  padding-left: 20px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--accent-blue);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Home Highlight Card */
+.data-highlight-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-medium);
+  padding: 24px;
+  margin-top: 24px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.accent-icon {
+  color: var(--accent-blue);
+  font-size: 20px;
+}
+
+/* Scroll-driven Initial State */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Scroll-driven In-View State */
+.timeline-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card Header Badge Layout */
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.badge-phase {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--border-color);
+  color: var(--text-secondary);
+}
+
+/* Active Highlight Style */
+.timeline-content {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content,
+.timeline-item.active-card .timeline-content {
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);
+  transform: translateX(4px);
+}
+
+.timeline-item:hover .timeline-icon,
+.timeline-item.active-card .timeline-icon {
+  box-shadow: 0 0 12px var(--accent-blue);
+}
+
+.tag {
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }

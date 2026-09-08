@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", renderProjects);
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
+  if (!form) return;
+
   const nameInput = document.getElementById('fullName');
   const emailInput = document.getElementById('email');
   const typeSelect = document.getElementById('projectType');
@@ -110,5 +112,52 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Message sent successfully!');
       form.reset();
     }
+  });
+});
+
+//timeline section on home page
+
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Scroll-Driven Reveal Animations (Intersection Observer)
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  const observerOptions = {
+    threshold: 0.25,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const itemObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        // Once animated, stop observing
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  timelineItems.forEach(item => {
+    itemObserver.observe(item);
+  });
+
+  // 2. Interactive Card Highlighting & Focus
+  timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Remove active class from all items
+      timelineItems.forEach(el => el.classList.remove('active-card'));
+      // Add active highlight class to the clicked item
+      item.classList.add('active-card');
+    });
+  });
+
+  // 3. Tag Counter / Filter Interaction (Optional Fun Extra)
+  const tags = document.querySelectorAll('.tag');
+  tags.forEach(tag => {
+    tag.addEventListener('mouseenter', () => {
+      tag.style.transform = 'scale(1.08)';
+    });
+    tag.addEventListener('mouseleave', () => {
+      tag.style.transform = 'scale(1)';
+    });
   });
 });
